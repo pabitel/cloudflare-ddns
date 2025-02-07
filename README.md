@@ -3,110 +3,110 @@
 [![Bash](https://img.shields.io/badge/Language-Bash-green.svg)](https://www.gnu.org/software/bash/)
 [![Docker](https://img.shields.io/badge/Docker-Supported-blue.svg)](https://www.docker.com/)
 
-自动更新 Cloudflare DNS A 记录的轻量级 DDNS 解决方案。支持 Docker 容器化部署和本地运行。
+A lightweight DDNS solution for automatically updating Cloudflare DNS A records. Supports both Docker containerized deployment and local running.
 
-## 📚 功能特性
+## 📚 Features
 
-- 🔄 自动检测并更新公网 IP 地址
-- 🔒 支持 Cloudflare API Token 认证
-- 🐳 提供 Docker 支持，便于容器化部署
-- ⏰ 支持自定义更新频率
-- 🌐 多个 IP 检测服务源，确保可靠性
-- 📝 详细的日志记录
+- 🔄 Automatic detection and update of public IP address
+- 🔒 Cloudflare API Token authentication support
+- 🐳 Docker support for easy containerized deployment
+- ⏰ Customizable update frequency
+- 🌐 Multiple IP detection services for reliability
+- 📝 Detailed logging
 
-## 🚀 快速开始
+## 🚀 Quick Start
 
-### 前置要求
+### Prerequisites
 
-- Cloudflare 账号和域名
-- API Token（在 Cloudflare 仪表板中获取）
-- 如果本地运行，需要安装：
+- Cloudflare account and domain
+- API Token (obtain from Cloudflare dashboard)
+- For local running, you need:
   - curl
   - jq
   - bash
 
-### Docker 部署（推荐）
+### Docker Deployment (Recommended)
 
-1. 克隆仓库：
+1. Clone the repository:
    ```bash
    git clone https://github.com/yourusername/ddns-bash.git
    cd ddns-bash
    ```
 
-2. 复制环境变量模板并修改：
+2. Copy and modify environment variables:
    ```bash
    cp .env.example .env
    ```
 
-3. 构建并运行 Docker 容器：
+3. Build and run Docker container:
    ```bash
    docker build -t ddns-bash .
    docker run -d --name ddns-bash --env-file .env ddns-bash
    ```
 
-### 本地部署
+### Local Deployment
 
-1. 克隆仓库并进入目录：
+1. Clone the repository and enter directory:
    ```bash
    git clone https://github.com/yourusername/ddns-bash.git
    cd ddns-bash
    ```
 
-2. 设置环境变量：
+2. Set up environment variables:
    ```bash
    cp .env.example .env
-   # 编辑 .env 文件填入你的配置
+   # Edit .env file with your configuration
    ```
 
-3. 添加执行权限并运行：
+3. Add execution permission and run:
    ```bash
    chmod +x ddns_update.sh
    ./ddns_update.sh
    ```
 
-## ⚙️ 配置说明
+## ⚙️ Configuration
 
-在 `.env` 文件中配置以下环境变量：
+Configure the following environment variables in `.env` file:
 
-| 变量名 | 描述 | 示例 |
-|--------|------|------|
+| Variable | Description | Example |
+|----------|-------------|---------|
 | CF_TOKEN | Cloudflare API Token | your_token_here |
-| ZONE_ID | 域名的 Zone ID | your_zone_id |
-| DOMAIN | 主域名 | example.com |
-| SUBDOMAIN | 子域名 | ddns |
-| CRON_SCHEDULE | Cron 更新周期 | */5 * * * * |
+| ZONE_ID | Domain Zone ID | your_zone_id |
+| DOMAIN | Main domain | example.com |
+| SUBDOMAIN | Subdomain | ddns |
+| CRON_SCHEDULE | Cron update interval | */5 * * * * |
 
-## 🔍 运行状态检查
+## 🔍 Status Check
 
-查看日志：
+View logs:
 ```bash
-# Docker 部署
+# Docker deployment
 docker logs ddns-bash
 
-# 本地部署
+# Local deployment
 cat /var/log/cron.log
 ```
 
-## 🤝 贡献指南
+## 🤝 Contributing
 
-欢迎提交 Pull Requests 和 Issues！
+Pull requests and issues are welcome!
 
-1. Fork 本仓库
-2. 创建你的特性分支 (git checkout -b feature/AmazingFeature)
-3. 提交你的修改 (git commit -m 'Add some AmazingFeature')
-4. 推送到分支 (git push origin feature/AmazingFeature)
-5. 创建一个 Pull Request
+1. Fork the repository
+2. Create your feature branch (git checkout -b feature/AmazingFeature)
+3. Commit your changes (git commit -m 'Add some AmazingFeature')
+4. Push to the branch (git push origin feature/AmazingFeature)
+5. Create a Pull Request
 
-## 📜 开源许可
+## 📜 License
 
-本项目采用 MIT 许可证 - 详见 [LICENSE](LICENSE) 文件
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details
 
-## 🔗 相关链接
+## 🔗 Related Links
 
-- [Cloudflare API 文档](https://api.cloudflare.com/)
-- [Docker 官方文档](https://docs.docker.com/)
+- [Cloudflare API Documentation](https://api.cloudflare.com/)
+- [Docker Documentation](https://docs.docker.com/)
 
-## 🙏 致谢
+## 🙏 Acknowledgments
 
-- [ipify](https://www.ipify.org/) - IP 地址查询服务
-- [其他IP查询服务提供商](https://github.com/yourusername/ddns-bash/blob/main/ddns_update.sh#L5)
+- [ipify](https://www.ipify.org/) - IP address lookup service
+- [Other IP lookup service providers](https://github.com/yourusername/ddns-bash/blob/main/ddns_update.sh#L5)
