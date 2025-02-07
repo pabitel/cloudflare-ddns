@@ -1,0 +1,24 @@
+# Ignore .env file containing sensitive information
+.env
+
+# Ignore log files
+*.log
+
+# Ignore Docker-related files
+docker-compose.yml
+Dockerfile
+
+# Ignore node_modules directory
+node_modules/
+
+# Ignore Python cache files
+__pycache__/
+*.py[cod]
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+# Ignore IDE and archive files
+.idea/
+.vscode/
